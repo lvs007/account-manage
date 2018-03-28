@@ -1,0 +1,1 @@
+启动jvm参数 java -Xms10m -Xmx80m -jar mod.jar &
