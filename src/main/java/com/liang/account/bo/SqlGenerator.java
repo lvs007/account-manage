@@ -6,6 +6,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import liang.dao.jdbc.common.CrudBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,7 +31,7 @@ public class SqlGenerator {
   public static String generateSql(String className) {
     try {
       Class<?> clz = Class.forName(className);
-      className = clz.getSimpleName();
+      className = CrudBuilder.convertToTableName(clz.getSimpleName());
       Field[] fields = clz.getDeclaredFields();
       StringBuffer column = new StringBuffer();
 
@@ -49,7 +50,7 @@ public class SqlGenerator {
         } else if (f.getType() == Date.class || f.getType() == java.sql.Date.class) {
           varchar = dateStr;
         }
-        column.append(" \n `" + f.getName() + "`").append(varchar);
+        column.append(" \n `" + CrudBuilder.convertToColumnName(f.getName()) + "`").append(varchar);
       }
       StringBuffer sql = new StringBuffer();
       sql.append("\n DROP TABLE IF EXISTS `" + className + "`; ")

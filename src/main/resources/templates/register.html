@@ -10,7 +10,8 @@
 
 <div style="text-align: center;margin:0 auto;width: 1000px; ">
     <h1>注册</h1>
-    <form action="/v1/pc-account/register">
+    <form action="/v1/pc-account/register" method="post">
+        <input type="hidden" name="callBackUrl" th:value="${callBackUrl}"/>
         <table width="100%" border="1" cellspacing="1" cellpadding="0">
             <tr>
                 <td>用户名：</td>
