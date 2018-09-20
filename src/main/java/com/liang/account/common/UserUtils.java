@@ -11,6 +11,10 @@ import java.util.UUID;
  */
 public class UserUtils {
 
+    private UserUtils() {
+        throw new IllegalStateException("Utility class");
+    }
+
     /**
      * 用户的token是否过期，过期返回true，未过期返回false
      *

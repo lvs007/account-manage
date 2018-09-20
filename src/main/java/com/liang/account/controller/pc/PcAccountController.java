@@ -1,5 +1,7 @@
 package com.liang.account.controller.pc;
 
+import static com.liang.account.constant.CommonConstants.CALL_BACK_URL;
+
 import com.liang.account.bo.Account;
 import com.liang.account.service.AccountService;
 import java.io.IOException;
@@ -36,7 +38,7 @@ public class PcAccountController {
     if (account == null) {
       responseData.setMessage("注册失败,用户名已经存在");
     } else {
-      String callBackUrl = SpringContextHolder.getRequest().getParameter("callBackUrl");
+      String callBackUrl = SpringContextHolder.getRequest().getParameter(CALL_BACK_URL);
       return "redirect:/v1/pc-login/login?userName=" + userName + "&password=" + password1
           + "&callBackUrl=" + callBackUrl;
     }
@@ -45,7 +47,7 @@ public class PcAccountController {
   }
 
   public String registerPage(ModelMap modelMap) {
-    modelMap.put("callBackUrl", SpringContextHolder.getRequest().getParameter("callBackUrl"));
+    modelMap.put(CALL_BACK_URL, SpringContextHolder.getRequest().getParameter(CALL_BACK_URL));
     return "register";
   }
 }

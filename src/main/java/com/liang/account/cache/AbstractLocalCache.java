@@ -3,14 +3,10 @@ package com.liang.account.cache;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
-import com.liang.account.service.ConfigService;
+import java.util.concurrent.TimeUnit;
+import javax.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.annotation.PostConstruct;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by liangzhiyan on 2017/3/17.
@@ -21,7 +17,7 @@ public abstract class AbstractLocalCache<K, V> implements BaseCache<K, V> {
 
     private int initialCapacity = 100000;
     private long maximumSize = 1000000;
-    private long duration = 24 * 60 * 60;
+    private long duration = 24 * 60 * 60L;
 
     private LoadingCache<K, V> cache;
 

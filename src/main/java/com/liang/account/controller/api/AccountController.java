@@ -9,6 +9,7 @@ import liang.mvc.filter.UserInfo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -36,7 +37,7 @@ public class AccountController {
         return accountService.getAccount(id);
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @PostMapping
     @ResponseBody
     public Object register(@RequestParam String userName,
                            @RequestParam String password1,

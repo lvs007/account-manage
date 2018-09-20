@@ -1,5 +1,7 @@
 package com.liang.account.controller.pc;
 
+import static com.liang.account.constant.CommonConstants.CALL_BACK_URL;
+
 import com.liang.account.constant.CommonConstants;
 import com.liang.account.manage.LoginManage;
 import java.io.IOException;
@@ -29,12 +31,11 @@ public class PcLoginController {
   @Autowired
   private LoginManage loginManage;
 
-  public String login(@RequestParam String userName,
-      @RequestParam String password) throws IOException {
+  public String login(@RequestParam String userName, @RequestParam String password) {
     HttpServletRequest request = SpringContextHolder.getRequest();
     HttpServletResponse response = SpringContextHolder.getResponse();
     HttpSession httpSession = SpringContextHolder.getHttpSession();
-    String callBackUrl = request.getParameter("callBackUrl");
+    String callBackUrl = request.getParameter(CALL_BACK_URL);
     ResponseData responseData = loginManage.login(userName, password);
     if (responseData.isSuccess()) {
       String token = (String) responseData.getData().get("token");
@@ -64,9 +65,9 @@ public class PcLoginController {
 
   public String loginPage(ModelMap modelMap) {
     HttpServletRequest request = SpringContextHolder.getRequest();
-    String callBackUrl = request.getParameter("callBackUrl");
+    String callBackUrl = request.getParameter(CALL_BACK_URL);
     if (StringUtils.isNotBlank(callBackUrl)) {
-      modelMap.put("callBackUrl", callBackUrl);
+      modelMap.put(CALL_BACK_URL, callBackUrl);
     }
     return "login";
   }

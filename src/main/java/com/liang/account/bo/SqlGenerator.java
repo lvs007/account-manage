@@ -91,33 +91,6 @@ public class SqlGenerator {
     }
   }
 
-  /**
-   * 将string 写入sql文件
-   *
-   * @author
-   * @date 2018年4月11日
-   */
-  public static void StringToSql(String str, String path) {
-    byte[] sourceByte = str.getBytes();
-    if (null != sourceByte) {
-      try {
-        File file = new File(path);     //文件路径（路径+文件名）
-        if (!file.exists()) {   //文件不存在则创建文件，先创建目录
-          File dir = new File(file.getParent());
-          dir.mkdirs();
-          file.createNewFile();
-        }
-        FileOutputStream outStream = new FileOutputStream(file);    //文件输出流用于将数据写入文件
-        outStream.write(sourceByte);
-        outStream.flush();
-        outStream.close();  //关闭文件输出流
-        System.out.println("生成成功");
-      } catch (Exception e) {
-        e.printStackTrace();
-      }
-    }
-  }
-
   public static void main(String[] args) {
 //    System.out.println(SqlGenerator.generateSql("com.liang.account.bo.Account"));
     System.out.println(SqlGenerator.generateSql("com.liang.account.bo.UserToken"));

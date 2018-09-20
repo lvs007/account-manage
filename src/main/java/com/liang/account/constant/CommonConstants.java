@@ -7,7 +7,12 @@ import liang.mvc.constants.MvcConstants;
  */
 public class CommonConstants {
 
+    private CommonConstants(){
+        throw new IllegalStateException("Utility class");
+    }
+
     public static final String TOKEN_NAME = MvcConstants.TOKEN;
     public static final String TRUE = "true";
     public static final String FALSE = "false";
+    public static final String CALL_BACK_URL = "callBackUrl";
 }

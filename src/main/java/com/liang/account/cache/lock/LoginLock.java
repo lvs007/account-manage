@@ -15,6 +15,10 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  */
 public class LoginLock {
 
+    private LoginLock() {
+        throw new IllegalStateException("Utility class");
+    }
+
     private static final int TRY_TIMES = 5;
 
     private static final LoadingCache<String, ReentrantLock> loginLockCache = CacheBuilder.newBuilder().

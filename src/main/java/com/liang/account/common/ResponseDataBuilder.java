@@ -8,24 +8,28 @@ import liang.mvc.commons.ResponseData;
  */
 public class ResponseDataBuilder {
 
+    private ResponseDataBuilder() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static ResponseData notExistUser() {
-        return buildErrorResponseData(ErrorConstant.not_exist_user_code, ErrorConstant.not_exist_user_code_desc);
+        return buildErrorResponseData(ErrorConstant.NOT_EXIST_USER_CODE, ErrorConstant.NOT_EXIST_USER_CODE_DESC);
     }
 
     public static ResponseData passwordError() {
-        return buildErrorResponseData(ErrorConstant.password_error_code, ErrorConstant.password_error_code_desc);
+        return buildErrorResponseData(ErrorConstant.PASSWORD_ERROR_CODE, ErrorConstant.PASSWORD_ERROR_CODE_DESC);
     }
 
     public static ResponseData userNotLogin() {
-        return buildErrorResponseData(ErrorConstant.user_not_login, ErrorConstant.user_not_login_desc);
+        return buildErrorResponseData(ErrorConstant.USER_NOT_LOGIN, ErrorConstant.USER_NOT_LOGIN_DESC);
     }
 
     public static ResponseData tokenExpire() {
-        return buildErrorResponseData(ErrorConstant.token_expire_code, ErrorConstant.token_expire_code_desc);
+        return buildErrorResponseData(ErrorConstant.TOKEN_EXPIRE_CODE, ErrorConstant.TOKEN_EXPIRE_CODE_DESC);
     }
 
     public static ResponseData repeatLogin() {
-        return buildErrorResponseData(ErrorConstant.repeat_login_code, ErrorConstant.repeat_login_code_desc);
+        return buildErrorResponseData(ErrorConstant.REPEAT_LOGIN_CODE, ErrorConstant.REPEAT_LOGIN_CODE_DESC);
     }
 
     public static ResponseData buildErrorResponseData(int errorCode, String message) {
@@ -38,8 +42,8 @@ public class ResponseDataBuilder {
 
     public static ResponseData buildSuccessResponseData(Object result) {
         ResponseData ResponseData = new ResponseData();
-        ResponseData.setErrorId(ErrorConstant.success_code);
-        ResponseData.setMessage(ErrorConstant.success_code_desc);
+        ResponseData.setErrorId(ErrorConstant.SUCCESS_CODE);
+        ResponseData.setMessage(ErrorConstant.SUCCESS_CODE_DESC);
         ResponseData.setSuccess(true);
         ResponseData.addData(result);
         return ResponseData;
