@@ -1,6 +1,7 @@
 package com.liang.account.service;
 
 import com.liang.account.bo.Account;
+import com.liang.account.cache.AccountCache;
 import com.liang.account.constant.enums.AccountStatusEnum;
 import com.liang.account.dao.AccountDao;
 import liang.dao.jdbc.common.SearchFilter;
@@ -26,6 +27,9 @@ public class AccountService {
 
     @Autowired
     private ConfigService configService;
+
+    @Autowired
+    private AccountCache accountCache;
 
     @RedisCacheAnnotation
     public Account getAccount(long id) {
@@ -55,6 +59,9 @@ public class AccountService {
 
     @Transactional
     public Account register(String userName, String password, String nickName) {
+        if (accountCache.get(userName) != null) {
+          return null;
+        }
         Account account = buildInsertAccount(userName, password, nickName);
         accountDao.insert(account);
         return account;

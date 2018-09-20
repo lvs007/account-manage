@@ -34,12 +34,11 @@ public class PcAccountController {
     Account account = accountService.register(userName, password1, nickName);
     ResponseData responseData = new ResponseData();
     if (account == null) {
-      responseData.setMessage("注册失败");
+      responseData.setMessage("注册失败,用户名已经存在");
     } else {
       String callBackUrl = SpringContextHolder.getRequest().getParameter("callBackUrl");
-      SpringContextHolder.getResponse()
-          .sendRedirect("/v1/pc-login/login?userName=" + userName + "&password=" + password1);
-      //            responseData.setMessage("注册成功");
+      return "redirect:/v1/pc-login/login?userName=" + userName + "&password=" + password1
+          + "&callBackUrl=" + callBackUrl;
     }
     modelMap.put("response", responseData);
     return "index";
