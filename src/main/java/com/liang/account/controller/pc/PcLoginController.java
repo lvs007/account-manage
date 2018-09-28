@@ -4,7 +4,6 @@ import static com.liang.account.constant.CommonConstants.CALL_BACK_URL;
 
 import com.liang.account.constant.CommonConstants;
 import com.liang.account.manage.LoginManage;
-import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -52,7 +51,8 @@ public class PcLoginController {
         callBackUrl = LOGIN_DEFAULT_CALLBACK_URL + CommonConstants.TRUE;
       }
     } else {
-      callBackUrl = LOGIN_DEFAULT_CALLBACK_URL + CommonConstants.FALSE;
+      callBackUrl = LOGIN_DEFAULT_CALLBACK_URL + CommonConstants.FALSE + "&reason=" + responseData
+          .getMessage();
     }
     return "redirect:" + callBackUrl;
   }
@@ -75,11 +75,12 @@ public class PcLoginController {
   public ModelAndView index() {
     HttpServletRequest request = SpringContextHolder.getRequest();
     String success = request.getParameter("success");
+    String reason = request.getParameter("reason");
     ResponseData responseData = new ResponseData();
     if (StringUtils.equalsIgnoreCase(success, "true")) {
       responseData.setMessage("登陆成功");
     } else {
-      responseData.setMessage("登陆失败");
+      responseData.setMessage("登陆失败," + reason);
     }
     ModelAndView modelAndView = new ModelAndView("index");
     modelAndView.addObject("response", responseData);

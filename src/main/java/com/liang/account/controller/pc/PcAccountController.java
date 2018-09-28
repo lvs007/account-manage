@@ -6,6 +6,7 @@ import com.liang.account.bo.Account;
 import com.liang.account.service.AccountService;
 import java.io.IOException;
 import liang.common.exception.ParameterException;
+import liang.common.util.Encodes;
 import liang.mvc.commons.ResponseData;
 import liang.mvc.commons.SpringContextHolder;
 import org.apache.commons.lang3.StringUtils;
@@ -40,7 +41,7 @@ public class PcAccountController {
     } else {
       String callBackUrl = SpringContextHolder.getRequest().getParameter(CALL_BACK_URL);
       return "redirect:/v1/pc-login/login?userName=" + userName + "&password=" + password1
-          + "&callBackUrl=" + callBackUrl;
+          + "&callBackUrl=" + Encodes.urlEncode(callBackUrl);
     }
     modelMap.put("response", responseData);
     return "index";

@@ -4,6 +4,7 @@ import com.liang.account.bo.Account;
 import com.liang.account.cache.AccountCache;
 import com.liang.account.constant.enums.AccountStatusEnum;
 import com.liang.account.dao.AccountDao;
+import javax.annotation.Resource;
 import liang.dao.jdbc.common.SearchFilter;
 import liang.dao.jdbc.common.SqlPath;
 import liang.mvc.annotation.cache.LocalCacheAnnotation;
@@ -36,7 +37,6 @@ public class AccountService {
         return accountDao.findById(id);
     }
 
-    @LocalCacheAnnotation
     public Account getAccount(String userName) {
         return accountDao.findOne(SqlPath.where("userName", SearchFilter.Operator.EQ, userName));
     }

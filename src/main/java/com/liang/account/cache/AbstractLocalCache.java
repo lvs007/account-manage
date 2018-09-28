@@ -36,7 +36,7 @@ public abstract class AbstractLocalCache<K, V> implements BaseCache<K, V> {
         try {
             return cache.get(userName);
         } catch (Exception e) {
-            LOG.error("数据库中没有对应的用户({})数据.", userName);
+            LOG.error("[{}]数据库中没有对应的用户({})数据.", getClass(), userName);
             return null;
         }
     }
