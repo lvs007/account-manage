@@ -1,8 +1,6 @@
 package com.liang.account.start;
 
-import liang.mvc.commons.SpringContextHolder;
-import liang.mvc.filter.LoginFilter;
-import liang.mvc.handler.mapping.SpringMvcConfiguration;
+import com.liang.mvc.handler.mapping.SpringMvcConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;

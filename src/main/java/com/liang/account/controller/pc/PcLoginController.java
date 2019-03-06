@@ -4,13 +4,13 @@ import static com.liang.account.constant.CommonConstants.CALL_BACK_URL;
 
 import com.liang.account.constant.CommonConstants;
 import com.liang.account.manage.LoginManage;
+import com.liang.mvc.annotation.Login;
+import com.liang.mvc.commons.ResponseData;
+import com.liang.mvc.commons.SpringContextHolder;
+import com.liang.mvc.filter.LoginUtils;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import liang.mvc.annotation.Login;
-import liang.mvc.commons.ResponseData;
-import liang.mvc.commons.SpringContextHolder;
-import liang.mvc.filter.LoginUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

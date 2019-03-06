@@ -13,13 +13,13 @@
     <description>Spring公共配置</description>
 
     <!-- 使用annotation 自动注册bean,并检查@Required,@Autowired的属性已被注入 -->
-    <context:component-scan base-package="com.liang.account,liang.dao,liang.cache,liang.flow"/>
+    <context:component-scan base-package="com.liang.account,com.liang.dao,com.liang.cache,com.liang.flow"/>
 
     <tx:annotation-driven proxy-target-class="true"/>
 
     <!--<aop:aspectj-autoproxy/>-->
 
-    <bean id="cacheAspect" class="liang.mvc.aspect.CacheAspect"/>
+    <bean id="cacheAspect" class="com.liang.mvc.aspect.CacheAspect"/>
 
     <!-- 系统配置文件读取 -->
     <!-- 定义受环境影响易变的变量 -->
@@ -48,17 +48,17 @@
             </list>
         </property>
     </bean>
-    <bean id="propertiesManager" class="liang.common.util.PropertiesManager" parent="propertyPlaceholderConfigurer"/>
+    <bean id="propertiesManager" class="com.liang.common.util.PropertiesManager" parent="propertyPlaceholderConfigurer"/>
 
     <mvc:resources mapping="/static/**" location="classpath:/static/" />
 
-    <bean id="aliMnsService" class="liang.mq.consumer.impl.AliMnsService"
+    <bean id="aliMnsService" class="com.liang.mq.consumer.impl.AliMnsService"
           p:accessId="${mns.accessId}" p:accessKey="${mns.accessKey}" p:endPoint="${mns.endPoint}" p:queueName="${mns.queueName}"/>
-    <bean id="messageService" class="liang.mq.consumer.MessageService" p:mnsService-ref="aliMnsService"/>
+    <bean id="messageService" class="com.liang.mq.consumer.MessageService" p:mnsService-ref="aliMnsService"/>
 
-    <!--<bean id="aliOnsService" class="liang.mq.consumer.impl.AliOnsService"-->
+    <!--<bean id="aliOnsService" class="com.liang.mq.consumer.impl.AliOnsService"-->
           <!--p:accessId="${mns.accessId}" p:accessKey="${mns.accessKey}" p:producerId="${ons.producerId}" p:consumerId="${ons.consumerId}" p:topicName="${ons.topicName}" p:tag="${ons.tag}" p:subscribe="${ons.subscribe}"/>-->
-    <!--<bean id="broadcastMessageService" class="liang.mq.consumer.MessageService" p:mnsService-ref="aliOnsService"/>-->
+    <!--<bean id="broadcastMessageService" class="com.liang.mq.consumer.MessageService" p:mnsService-ref="aliOnsService"/>-->
 
     <mvc:interceptors>
 
@@ -67,7 +67,7 @@
             <mvc:exclude-mapping path="/v1/login/get-user-info"/>
             <mvc:exclude-mapping path="/static/**"/>
 
-            <bean class="liang.flow.interceptor.FlowAndForbiddenInterceptor"/>
+            <bean class="com.liang.flow.interceptor.FlowAndForbiddenInterceptor"/>
         </mvc:interceptor>
 
     </mvc:interceptors>

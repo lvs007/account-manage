@@ -1,7 +1,7 @@
 package com.liang.account.common;
 
 import com.liang.account.constant.ErrorConstant;
-import liang.mvc.commons.ResponseData;
+import com.liang.mvc.commons.ResponseData;
 
 /**
  * Created by liangzhiyan on 2017/3/18.

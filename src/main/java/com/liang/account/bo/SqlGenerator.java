@@ -1,12 +1,12 @@
 package com.liang.account.bo;
 
+import com.liang.dao.jdbc.common.CrudBuilder;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import liang.dao.jdbc.common.CrudBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

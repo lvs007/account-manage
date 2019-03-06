@@ -1,6 +1,7 @@
 package com.liang.account.constant;
 
-import liang.mvc.constants.MvcConstants;
+
+import com.liang.mvc.constants.MvcConstants;
 
 /**
  * Created by liangzhiyan on 2017/3/17.

@@ -74,7 +74,7 @@
     <!--</bean>-->
 
     <!-- jdbc实现方式配置-->
-    <bean id="storageManager" class="liang.dao.jdbc.common.StorageManager" p:name="account-manage" p:maxErrorCount="600"
+    <bean id="storageManager" class="com.liang.dao.jdbc.common.StorageManager" p:name="account-manage" p:maxErrorCount="600"
           p:maxSlowCount="300"/>
 
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">

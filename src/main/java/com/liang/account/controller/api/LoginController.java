@@ -2,11 +2,11 @@ package com.liang.account.controller.api;
 
 import com.liang.account.constant.CommonConstants;
 import com.liang.account.manage.LoginManage;
-import liang.mvc.annotation.Login;
-import liang.mvc.annotation.Sign;
-import liang.mvc.commons.ResponseData;
-import liang.mvc.commons.SpringContextHolder;
-import liang.mvc.filter.LoginUtils;
+import com.liang.mvc.annotation.Login;
+import com.liang.mvc.annotation.Sign;
+import com.liang.mvc.commons.ResponseData;
+import com.liang.mvc.commons.SpringContextHolder;
+import com.liang.mvc.filter.LoginUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestParam;

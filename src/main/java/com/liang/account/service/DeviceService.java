@@ -3,12 +3,13 @@ package com.liang.account.service;
 import com.liang.account.bo.Device;
 import com.liang.account.common.ResponseDataBuilder;
 import com.liang.account.dao.DeviceDao;
+import com.liang.common.util.LockUtils;
+import com.liang.dao.jdbc.common.SearchFilter.Operator;
+import com.liang.dao.jdbc.common.SqlPath;
+import com.liang.mvc.annotation.cache.LocalCacheAnnotation;
+import com.liang.mvc.commons.ResponseData;
 import java.util.List;
 import javax.transaction.Transactional;
-import liang.common.util.LockUtils;
-import liang.dao.jdbc.common.SearchFilter.Operator;
-import liang.dao.jdbc.common.SqlPath;
-import liang.mvc.commons.ResponseData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,6 +47,7 @@ public class DeviceService {
     return ResponseDataBuilder.buildSuccessResponseData(null);
   }
 
+  @LocalCacheAnnotation
   public ResponseData getUserDevice(long userId) {
     Device device = deviceDao.findOne(SqlPath.where("userId", Operator.EQ, userId)
         .and(SqlPath.where("inUse", Operator.EQ, true)));

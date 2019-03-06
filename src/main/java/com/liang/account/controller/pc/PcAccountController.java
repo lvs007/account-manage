@@ -4,11 +4,11 @@ import static com.liang.account.constant.CommonConstants.CALL_BACK_URL;
 
 import com.liang.account.bo.Account;
 import com.liang.account.service.AccountService;
+import com.liang.common.exception.ParameterException;
+import com.liang.common.util.Encodes;
+import com.liang.mvc.commons.ResponseData;
+import com.liang.mvc.commons.SpringContextHolder;
 import java.io.IOException;
-import liang.common.exception.ParameterException;
-import liang.common.util.Encodes;
-import liang.mvc.commons.ResponseData;
-import liang.mvc.commons.SpringContextHolder;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

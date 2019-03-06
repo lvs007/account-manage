@@ -1,6 +1,6 @@
 package com.liang.account.listener;
 
-import liang.mq.consumer.listener.MessageListener;
+import com.liang.mq.consumer.listener.MessageListener;
 import org.springframework.stereotype.Service;
 
 /**

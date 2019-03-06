@@ -2,7 +2,7 @@ package com.liang.account.dao.impl;
 
 import com.liang.account.bo.UserToken;
 import com.liang.account.dao.UserTokenDao;
-import liang.dao.jdbc.impl.AbstractDao;
+import com.liang.dao.jdbc.impl.AbstractDao;
 import org.springframework.stereotype.Repository;
 
 /**

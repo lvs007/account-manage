@@ -2,10 +2,10 @@ package com.liang.account.controller;
 
 import com.liang.account.bo.Account;
 import com.liang.account.service.AccountService;
-import liang.cache.impl.RedisCache;
-import liang.common.exception.ParameterException;
-import liang.mq.consumer.MessageService;
-import liang.mvc.commons.SpringContextHolder;
+import com.liang.cache.impl.RedisCache;
+import com.liang.common.exception.ParameterException;
+import com.liang.mq.consumer.MessageService;
+import com.liang.mvc.commons.SpringContextHolder;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
