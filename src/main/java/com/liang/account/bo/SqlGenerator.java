@@ -35,7 +35,7 @@ public class SqlGenerator {
       Field[] fields = clz.getDeclaredFields();
       StringBuffer column = new StringBuffer();
 
-      String strchar = " varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,";
+      String strchar = " varchar(255) DEFAULT NULL,";
       String longStr = " BIGINT(20) NOT NULL,";
       String intStr = " INT(11) NOT NULL,";
       String dateStr = " DATETIME NOT NULL,";
@@ -59,7 +59,7 @@ public class SqlGenerator {
           .append(" \n " + column)
           .append(" \n PRIMARY KEY (`id`)")
           .append(
-              " \n ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci;");
+              " \n ) ENGINE = InnoDB AUTO_INCREMENT = 1 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;");
       return sql.toString();
     } catch (ClassNotFoundException e) {
       logger.debug("该类未找到！");
@@ -92,7 +92,7 @@ public class SqlGenerator {
   }
 
   public static void main(String[] args) {
-//    System.out.println(SqlGenerator.generateSql("com.liang.account.bo.Account"));
+    System.out.println(SqlGenerator.generateSql("com.liang.account.bo.Account"));
     System.out.println(SqlGenerator.generateSql("com.liang.account.bo.UserToken"));
   }
 }
