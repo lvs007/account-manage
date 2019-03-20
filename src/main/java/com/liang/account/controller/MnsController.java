@@ -22,8 +22,8 @@ import java.util.Calendar;
 @Controller
 public class MnsController {
 
-    @Resource(name = "messageService")
-    private MessageService messageService;
+//    @Resource(name = "messageService")
+//    private MessageService messageService;
 
 //    @Resource(name = "broadcastMessageService")
 //    private MessageService broadcastMessageService;
@@ -41,7 +41,7 @@ public class MnsController {
         if (StringUtils.isBlank(msg)) {
             return "false";
         }
-        messageService.sendMsg(msg);
+//        messageService.sendMsg(msg);
         return "true";
     }
 

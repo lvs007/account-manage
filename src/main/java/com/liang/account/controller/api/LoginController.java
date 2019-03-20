@@ -41,7 +41,7 @@ public class LoginController {
 
     @Login
     @ResponseBody
-    public Object logOut(@RequestParam String token) {
+    public Object logOut(@RequestParam(name = "nb_token") String token) {
         return loginManage.logOut(token);
     }
 

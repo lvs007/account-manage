@@ -52,9 +52,9 @@
 
     <mvc:resources mapping="/static/**" location="classpath:/static/" />
 
-    <bean id="aliMnsService" class="com.liang.mq.consumer.impl.AliMnsService"
-          p:accessId="${mns.accessId}" p:accessKey="${mns.accessKey}" p:endPoint="${mns.endPoint}" p:queueName="${mns.queueName}"/>
-    <bean id="messageService" class="com.liang.mq.consumer.MessageService" p:mnsService-ref="aliMnsService"/>
+    <!--<bean id="aliMnsService" class="com.liang.mq.consumer.impl.AliMnsService"-->
+          <!--p:accessId="${mns.accessId}" p:accessKey="${mns.accessKey}" p:endPoint="${mns.endPoint}" p:queueName="${mns.queueName}"/>-->
+    <!--<bean id="messageService" class="com.liang.mq.consumer.MessageService" p:mnsService-ref="aliMnsService"/>-->
 
     <!--<bean id="aliOnsService" class="com.liang.mq.consumer.impl.AliOnsService"-->
           <!--p:accessId="${mns.accessId}" p:accessKey="${mns.accessKey}" p:producerId="${ons.producerId}" p:consumerId="${ons.consumerId}" p:topicName="${ons.topicName}" p:tag="${ons.tag}" p:subscribe="${ons.subscribe}"/>-->

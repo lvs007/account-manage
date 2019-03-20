@@ -4,6 +4,7 @@ import static com.liang.account.constant.CommonConstants.CALL_BACK_URL;
 
 import com.liang.account.constant.CommonConstants;
 import com.liang.account.manage.LoginManage;
+import com.liang.common.util.Encodes;
 import com.liang.mvc.annotation.Login;
 import com.liang.mvc.commons.ResponseData;
 import com.liang.mvc.commons.SpringContextHolder;
@@ -26,6 +27,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class PcLoginController {
 
   private static final String LOGIN_DEFAULT_CALLBACK_URL = "/v1/pc-login/index?success=";
+  private static final String LOGIN__URL = "/v1/pc-login/login-page?success=";
 
   @Autowired
   private LoginManage loginManage;
@@ -51,8 +53,8 @@ public class PcLoginController {
         callBackUrl = LOGIN_DEFAULT_CALLBACK_URL + CommonConstants.TRUE;
       }
     } else {
-      callBackUrl = LOGIN_DEFAULT_CALLBACK_URL + CommonConstants.FALSE + "&reason=" + responseData
-          .getMessage();
+      callBackUrl = LOGIN__URL + CommonConstants.FALSE + "&reason=" + Encodes.urlEncode(responseData
+          .getMessage()) + "&" + CALL_BACK_URL + "=" + callBackUrl;
     }
     return "redirect:" + callBackUrl;
   }
@@ -68,6 +70,10 @@ public class PcLoginController {
     String callBackUrl = request.getParameter(CALL_BACK_URL);
     if (StringUtils.isNotBlank(callBackUrl)) {
       modelMap.put(CALL_BACK_URL, callBackUrl);
+    }
+    String reason = request.getParameter("reason");
+    if (StringUtils.isNotBlank(reason)) {
+      modelMap.put("reason", reason);
     }
     return "login";
   }
